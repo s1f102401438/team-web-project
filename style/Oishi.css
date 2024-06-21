@@ -2,11 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 body {
   display: grid;
-  background: #f5f5f7;
+  background: #f9f9f9;
   grid-template-rows: 80px 1fr 80px;
   grid-template-areas:
     "header"
@@ -19,42 +20,100 @@ body {
   grid-area: header;
   width: 100%;
   background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
 }
 
 .main {
   grid-area: main;
   width: 100%;
-  background-color: #f5f5f7;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
 .profile {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .profile img {
-  width: 600px;
-  height: 600px;
+  width: 450px;
+  height: 450px;
   border-radius: 10px;
+  object-fit: cover;
+  margin-right: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .profile .profile-info {
   display: flex;
-  width: 600px;
-  height: 600px;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
-  background: #d0d0d0;
+  align-items: flex-start;
+}
+
+.profile .profile-info h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .profile .profile-info p {
-  font-size: 40px;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.profile .profile-info a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.profile .profile-info a:hover {
+  text-decoration: underline;
+}
+
+.description {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #555;
+  line-height: 1.6;
+}
+
+.description p {
+  font-size: 1em;
 }
 
 .footer {
   grid-area: footer;
   width: 100%;
   background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer p {
+  font-size: 0.9em;
 }
