@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 body {
@@ -37,17 +37,18 @@ body {
   width: 100%;
   background-color: #f9f9f9;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
 .profile {
+  margin-top: 100px;
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .profile img {
@@ -55,52 +56,36 @@ body {
   height: 450px;
   border-radius: 10px;
   object-fit: cover;
-  margin-right: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-.profile .profile-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.profile .profile-info h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.profile .profile-info p {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-.profile .profile-info a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.profile .profile-info a:hover {
-  text-decoration: underline;
+.profile img:hover {
+  transform: scale(1.05);
 }
 
 .description {
-  display: flex;
-  width: 60%;
-  margin: 0 auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #555;
-  line-height: 1.6;
+  max-width: 600px;
+}
+
+.description h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.description .details {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
 }
 
 .description p {
-  font-size: 1em;
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
 }
 
 .footer {
