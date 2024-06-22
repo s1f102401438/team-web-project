@@ -588,33 +588,24 @@
         musicLists.forEach((musicList) => {
           const musicItems = Array.from(musicList.children);
           let startScroll;
-
           const scrollList = () => {
             musicList.scrollLeft += scrollSpeed;
-
             if (
               musicList.scrollLeft >=
               musicList.scrollWidth - musicList.clientWidth
             ) {
               musicList.scrollLeft = 0;
             }
-
             startScroll = requestAnimationFrame(scrollList);
           };
-
           const cloneItems = () => {
             musicItems.forEach((item) => {
               const clone = item.cloneNode(true);
               musicList.appendChild(clone);
             });
           };
-
           cloneItems();
-
-          // スクロールを開始
           startScroll = requestAnimationFrame(scrollList);
-
-          // ホバーで一時停止、離れると再開
           musicList.addEventListener("mouseover", () =>
             cancelAnimationFrame(startScroll)
           );

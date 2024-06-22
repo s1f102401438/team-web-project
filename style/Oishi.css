@@ -142,15 +142,15 @@ body {
 }
 
 .social-icons .icon:hover {
-  color: #000000; /* Twitterカラー */
+  color: #000000;
 }
 
 .social-icons :nth-child(2):hover {
-  color: #ff0000; /* YouTubeカラー */
+  color: #ff0000;
 }
 
 .social-icons .icon:last-child:hover {
-  color: #e1306c; /* Instagramカラー */
+  color: #e1306c;
 }
 
 .description {
@@ -241,7 +241,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* 黒いマスクの透明度 */
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   visibility: hidden;
   display: flex;
