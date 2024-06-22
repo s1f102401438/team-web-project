@@ -54,76 +54,57 @@ body {
 }
 
 .image-container {
+  position: relative;
+  width: 450px;
   display: flex;
   flex-direction: column;
   align-items: end;
   justify-content: center;
 }
 
-.profile .img {
-  width: 450px;
-  height: 450px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  background-image: url(../images/0000145140.1704958560orig.jpg);
-  background-size: cover;
-  animation: infinite 10s change-image;
-}
-
-.profile .img:hover {
-  transform: scale(1.05);
-}
-
-@keyframes change-image {
-  0% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
-  }
-  10% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
-  }
-  20% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
-  }
-  30% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
-  }
-  40% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
-  }
-  50% {
-    background-image: url(../images/img_dc66744f5d098954314edbbf40664e7a1143313.png);
-  }
-  60% {
-    background-image: url(../images/img_dc66744f5d098954314edbbf40664e7a1143313.png);
-  }
-  70% {
-    background-image: url(../images/img_dc66744f5d098954314edbbf40664e7a1143313.png);
-  }
-  80% {
-    background-image: url(../images/img_dc66744f5d098954314edbbf40664e7a1143313.png);
-  }
-  90% {
-    background-image: url(../images/img_dc66744f5d098954314edbbf40664e7a1143313.png);
-  }
+@keyframes fade1 {
+  0%,
+  50%,
   100% {
-    background-image: url(../images/0000145140.1704958560orig.jpg);
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
   }
 }
 
-/* .profile img {
+@keyframes fade2 {
+  0%,
+  50%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+.profile img {
   width: 450px;
   height: 450px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  animation: fade1 25s infinite;
+}
+
+.profile .img2 {
+  animation: fade2 25s infinite;
+  position: absolute;
+  top: 0;
 }
 
 .profile img:hover {
   transform: scale(1.05);
-} */
+}
 
 .social-icons {
   display: flex;
