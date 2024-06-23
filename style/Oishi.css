@@ -21,7 +21,7 @@ body {
     "main"
     "footer";
   height: 100vh;
-  width: 100vw;
+  overflow-x: hidden;
 }
 
 .header {
@@ -58,14 +58,16 @@ body {
   max-width: 1200px;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .image-container {
   position: relative;
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -94,8 +96,9 @@ body {
 }
 
 .profile img {
-  width: 450px;
-  height: 450px;
+  width: 100%;
+  height: auto;
+  max-width: 450px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -143,6 +146,7 @@ body {
 
 .description {
   max-width: 600px;
+  flex: 1;
 }
 
 .profile .description h2 {
@@ -260,14 +264,16 @@ body {
   padding: 50px;
   background: #f1f1f1;
   border-radius: 10px;
+  flex-wrap: wrap;
 }
 
 .about .image-container {
   position: relative;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -275,7 +281,6 @@ body {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
   object-fit: cover;
   transition: transform 0.3s;
 }
@@ -310,6 +315,7 @@ body {
 
 .about .description {
   max-width: 800px;
+  flex: 1;
 }
 
 .description h2 {
@@ -360,7 +366,6 @@ body {
 .card img {
   width: 100%;
   border-radius: 7px;
-
   height: auto;
   display: block;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -384,4 +389,68 @@ body {
 
 .footer p {
   font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile,
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile .description,
+  .about .description {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile .social-icons,
+  .about .social-icons {
+    justify-content: center;
+  }
+
+  .music-list {
+    height: auto;
+  }
+
+  .music-item {
+    width: 100%;
+  }
+
+  .music-item img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+    margin-top: 100px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .profile .description h2,
+  .about .description h2 {
+    font-size: 2em;
+  }
+
+  .profile .description .details,
+  .description p,
+  .about .description p {
+    font-size: 1em;
+  }
+
+  .music-recommend h2,
+  .music-recommend h3 {
+    font-size: 1.5em;
+  }
+
+  .cards .card {
+    font-size: 1em;
+  }
 }
