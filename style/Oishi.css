@@ -5,6 +5,13 @@
   font-family: "Noto Sans JP", sans-serif;
 }
 
+h1 {
+  margin-top: 200px;
+  font-size: 3em;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
 body {
   display: grid;
   background: #f9f9f9;
@@ -106,13 +113,13 @@ body {
   transform: scale(1.05);
 }
 
-.social-icons {
+.profile .social-icons {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.social-icons .icon {
+.profile .social-icons .icon {
   font-size: 2em;
   margin: 0 10px;
   color: #555;
@@ -122,15 +129,15 @@ body {
   border-radius: 10px;
 }
 
-.social-icons .icon:hover {
+.profile .social-icons .icon:hover {
   color: #000000;
 }
 
-.social-icons :nth-child(2):hover {
+.profile .social-icons :nth-child(2):hover {
   color: #ff0000;
 }
 
-.social-icons .icon:last-child:hover {
+.profile .social-icons .icon:last-child:hover {
   color: #e1306c;
 }
 
@@ -138,14 +145,14 @@ body {
   max-width: 600px;
 }
 
-.description h2 {
+.profile .description h2 {
   font-size: 2.5em;
   margin-bottom: 10px;
   color: #333;
   letter-spacing: 0.1em;
 }
 
-.description .details {
+.profile .description .details {
   font-size: 1em;
   color: #666;
   margin-bottom: 20px;
@@ -241,6 +248,91 @@ body {
 .music-item:hover .mask {
   visibility: visible;
   transform: scale(1.05);
+}
+
+.about {
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 50px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.about .image-container {
+  position: relative;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+}
+
+.about img {
+  width: 800px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.about img:hover {
+  transform: scale(1.05);
+}
+
+.about .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.about .social-icons .icon {
+  font-size: 2em;
+  margin: 0 10px;
+  color: #555;
+  transition: all 0.3s;
+  aspect-ratio: 1/1;
+  width: 45px;
+  border-radius: 10px;
+}
+
+.about .social-icons .icon:hover {
+  color: #000000;
+}
+
+.about .social-icons :nth-child(2):hover {
+  color: #ff0000;
+}
+
+.about .social-icons .icon:last-child:hover {
+  color: #e1306c;
+}
+
+.about .description {
+  max-width: 700px;
+}
+
+.description h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.description .details {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.about .description p {
+  font-size: 1.4em;
+  color: #555;
+  line-height: 1.6;
 }
 
 .footer {
