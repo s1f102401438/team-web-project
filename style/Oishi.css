@@ -185,26 +185,10 @@ body {
   margin-top: 30px;
   height: 200px;
   align-items: center;
-  overflow: hidden;
+  overflow-x: auto;
   white-space: nowrap;
   position: relative;
-}
-
-.music-recommend h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  margin-top: 50px;
-  color: #333;
-  letter-spacing: 0.1em;
-}
-
-.music-recommend h3 {
-  position: absolute;
-  font-size: 1.5em;
-  color: #333;
-  letter-spacing: 0.1em;
-  bottom: 0;
-  right: 5%;
+  scroll-snap-type: x mandatory;
 }
 
 .music-item {
@@ -212,6 +196,7 @@ body {
   min-width: 180px;
   height: 180px;
   border-radius: 10px;
+  scroll-snap-align: start;
 }
 
 .music-item img {
@@ -412,6 +397,7 @@ body {
   }
 
   .music-list {
+    flex-direction: row;
     height: auto;
   }
 
