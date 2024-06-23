@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Artist</title>
+    <link rel="stylesheet" href="./style/Oishi.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Favorite Artist</h1>
+    </header>
+    <main class="main">
+      <div class="profile">
+        <div class="description">
+          <h2>アーティスト名</h2>
+          <p class="details">出身生まれなど</p>
+          <p>アーティストに関する詳しい記述</p>
+        </div>
+        <div class="image-container">
+          <!-- 画像のパスを変更してください -->
+          <img src="/team-web-project/images/0000145140.1704958560orig.jpg" />
+          <div class="social-icons">
+            <!-- snsアイコンはyoutube,X,instagramが用意してある、適宜変更してください。更に欲しい場合は教えて下さい。
+            aタグのHref属性にはアーティストのSNSのリンクを入れてください。 -->
+            <a
+              href="https://twitter.com/Masayoshi_Oishi"
+              target="_blank"
+              class="icon"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UC6FmznwRG0CpdjtNyHucmTA"
+              target="_blank"
+              class="icon"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/masayoshi_oishi_/?hl=ja"
+              target="_blank"
+              class="icon"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="music-recommend">
+        <h2>(アーティスト名)の楽曲</h2>
+        <!-- class名"musi-list"が流れている全体を指します。その中の"music-item"が一つの楽曲を指します。music-itemの中にはaタグがあり、その中にimgタグがあります。imgタグのsrc属性には楽曲の画像を入れてください。aタグのhref属性には楽曲のリンクを入れてください。pタグには楽曲のタイトルを入れてください。
+         いまここには２曲分のmusib-itemしかないのでコピペして増やしてください-->
+        <div class="music-list">
+          <div class="music-item">
+            <a
+              href="https://youtu.be/5kOWS6DhDp4?si=3kYlb20pgxq18yub"
+              target="_blank"
+            >
+              <img src="/team-web-project/images/oishi-music/enta-.jpg" />
+              <div class="mask">
+                <p>エンターテイナー</p>
+              </div>
+            </a>
+          </div>
+          <div class="music-item">
+            <a
+              href="https://youtu.be/_QiVgICckPk?si=cq-PeZvJhPI6x1KN"
+              target="_blank"
+            >
+              <img src="/team-web-project/images/oishi-music/gift.jpg" />
+              <div class="mask">
+                <p>ギフト</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <h3>etc...</h3>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2024 Favorite Artist. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const musicLists = document.querySelectorAll(".music-list");
+        const scrollSpeed = 1;
+
+        musicLists.forEach((musicList) => {
+          const musicItems = Array.from(musicList.children);
+          let startScroll;
+          const scrollList = () => {
+            musicList.scrollLeft += scrollSpeed;
+            if (
+              musicList.scrollLeft >=
+              musicList.scrollWidth - musicList.clientWidth
+            ) {
+              musicList.scrollLeft = 0;
+            }
+            startScroll = requestAnimationFrame(scrollList);
+          };
+          const cloneItems = () => {
+            musicItems.forEach((item) => {
+              const clone = item.cloneNode(true);
+              musicList.appendChild(clone);
+            });
+          };
+          cloneItems();
+          startScroll = requestAnimationFrame(scrollList);
+          musicList.addEventListener("mouseover", () =>
+            cancelAnimationFrame(startScroll)
+          );
+          musicList.addEventListener("mouseout", () => {
+            startScroll = requestAnimationFrame(scrollList);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
