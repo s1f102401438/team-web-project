@@ -3,10 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Favorite Artist</title>
     <link rel="stylesheet" href="./style/yuuta.css" class="css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
 </head>
 <body>
-    
+    <header class="header"></header>
+    <main class="main">
+      <h1>The BlueHearts</h1>
+      <div class="profile">
+        <img src="" alt="" />
+        <div class="profile-info">
+          <p>The BlueHearts</p>
+          <p>ジャンル:ロックバンド</p>
+          <p>代表作：情熱のバラ,1000のバイオリン,traintrain:</p>
+          <p><a href="">The BlueHearts公式youtube</a></p>
+          <p>事務所:有限会社ボクチン（voque ting）</p>
+          <p>メンバー:真島冒利/甲本ヒロト/河口純之助/梶原徹也/白井幹夫/</p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+    <header class="header">
+      <h1>Favorite Artist</h1>
+    </header>
+    <main class="main">
+      <div class="profile">
+        <div class="description">
+          <h2>The BlueHearts</h2>
+          <p class="details">1985年結成</p>
+          <p>日本を代表する1980年代の伝説的パンクバンド。ストレートな歌詞で当時の若者の深い共感を呼んだ。代表曲に終わらない歌、リンダリンダ、情熱の薔薇、青空などがある。現在、メンバーの一部はザクロマニヨンズとして活動している</p>
+        </div>
+        <div class="image-container">
+          <!-- 画像のパスを変更してください -->
+          <img src="/buluha.jpeg" />
+          <div class="social-icons">
+            <!-- snsアイコンはyoutube,X,instagramが用意してある、適宜変更してください。更に欲しい場合は教えて下さい。
+            aタグのHref属性にはアーティストのSNSのリンクを入れてください。 -->
+            <a
+              href="https://x.com/i/flow/login?redirect_after_login=%2Ftbh30th"
+              target="_blank"
+              class="icon"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@thebluehearts"
+              target="_blank"
+              class="icon"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a
+              href=""
+              target="_blank"
+              class="icon"
+            >
+              <i class=""></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="music-recommend">
+        <h2>(アーティスト名)の楽曲</h2>
+        <!-- class名"musi-list"が流れている全体を指します。その中の"music-item"が一つの楽曲を指します。music-itemの中にはaタグがあり、その中にimgタグがあります。imgタグのsrc属性には楽曲の画像を入れてください。aタグのhref属性には楽曲のリンクを入れてください。pタグには楽曲のタイトルを入れてください。
+         いまここには２曲分のmusib-itemしかないのでコピペして増やしてください-->
+        <div class="music-list">
+          <div class="music-item">
+            <a
+              href="/"
+              target="_blank"
+            >
+              <img src="/aozoraburuha.jpeg" />
+              <div class="mask">
+                <p>青空</p>
+              </div>
+            </a>
+          </div>
+          <div class="music-item">
+            <a
+              href="https://youtu.be/_QiVgICckPk?si=cq-PeZvJhPI6x1KN"
+              target="_blank"
+            >
+              <img src="/owaranaiuta.jpeg" />
+              <div class="mask">
+                <p>終わらない歌</p>
+              </div>
+            </a>
+          </div>
+          <div class="music-item">
+            <a
+              href="https://www.youtube.com/watch?v=RYC71PAuIKE"
+              target="_blank"
+            >
+              <img src="/lindalinda.jpeg" />
+              <div class="mask">
+                <p>リンダリンダ</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <h3>etc...</h3>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2024 Favorite Artist. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const musicLists = document.querySelectorAll(".music-list");
+        const scrollSpeed = 1;
+
+        musicLists.forEach((musicList) => {
+          const musicItems = Array.from(musicList.children);
+          let startScroll;
+          const scrollList = () => {
+            musicList.scrollLeft += scrollSpeed;
+            if (
+              musicList.scrollLeft >=
+              musicList.scrollWidth - musicList.clientWidth
+            ) {
+              musicList.scrollLeft = 0;
+            }
+            startScroll = requestAnimationFrame(scrollList);
+          };
+          const cloneItems = () => {
+            musicItems.forEach((item) => {
+              const clone = item.cloneNode(true);
+              musicList.appendChild(clone);
+            });
+          };
+          cloneItems();
+          startScroll = requestAnimationFrame(scrollList);
+          musicList.addEventListener("mouseover", () =>
+            cancelAnimationFrame(startScroll)
+          );
+          musicList.addEventListener("mouseout", () => {
+            startScroll = requestAnimationFrame(scrollList);
+          });
+        });
+      });
+    </script>
 </body>
 </html>

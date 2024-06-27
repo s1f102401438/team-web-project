@@ -1,4 +1,456 @@
-body{
-    background:white;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+h1 {
+  margin-top: 200px;
+  font-size: 3em;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+body {
+  display: grid;
+  background: #f9f9f9;
+  grid-template-rows: 80px 1fr 80px;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.header {
+  grid-area: header;
+  width: 100%;
+  background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.main {
+  grid-area: main;
+  width: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile {
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fade1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade2 {
+  0%,
+  50%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+.profile img {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  animation: fade1 25s infinite;
+}
+
+.profile .img2 {
+  animation: fade2 25s infinite;
+  position: absolute;
+  top: 0;
+}
+
+.profile img:hover {
+  transform: scale(1.05);
+}
+
+.profile .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.profile .social-icons .icon {
+  font-size: 2em;
+  margin: 0 10px;
+  color: #555;
+  transition: all 0.3s;
+  aspect-ratio: 1/1;
+  width: 45px;
+  border-radius: 10px;
+}
+
+.profile .social-icons .icon:hover {
+  color: #000000;
+}
+
+.profile .social-icons :nth-child(2):hover {
+  color: #ff0000;
+}
+
+.profile .social-icons .icon:last-child:hover {
+  color: #e1306c;
+}
+
+.description {
+  max-width: 600px;
+  flex: 1;
+}
+
+.profile .description h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.profile .description .details {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.description p {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.music-recommend {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.music-list {
+  display: flex;
+  gap: 20px;
+  max-width: 95vw;
+  margin-top: 30px;
+  height: 200px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.music-recommend h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.music-recommend h3 {
+  position: absolute;
+  font-size: 1.5em;
+  color: #333;
+  letter-spacing: 0.1em;
+  bottom: 0;
+  right: 5%;
+}
+
+.music-item {
+  position: relative;
+  min-width: 180px;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.music-item img {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: transform 0.1s;
+}
+
+.music-item:hover img {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+
+.music-item .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.music-item .mask p {
+  font-size: 0.9em;
+  color: #e4e3e3;
+  line-height: 1.6;
+  padding: 0px 1px;
+}
+
+.music-item:hover .mask {
+  visibility: visible;
+  transform: scale(1.05);
+}
+
+.about {
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 50px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.about .image-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.about img:hover {
+  transform: scale(1.05);
+}
+
+.about .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.about .social-icons .icon {
+  font-size: 2em;
+  margin: 0 10px;
+  color: #555;
+  transition: all 0.3s;
+  aspect-ratio: 1/1;
+  width: 45px;
+  border-radius: 10px;
+}
+
+.about .social-icons .icon:hover {
+  color: #000000;
+}
+
+.about .social-icons :nth-child(2):hover {
+  color: #ff0000;
+}
+
+.about .description {
+  max-width: 800px;
+  flex: 1;
+}
+
+.description h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.about .description p {
+  font-size: 1.3em;
+  color: #555;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.main .card-container {
+  margin-top: 100px;
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.main .cards {
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.cards .card {
+  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 7px;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  grid-area: footer;
+  width: 100%;
+  background: #f1f1f1;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer p {
+  font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile,
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile .description,
+  .about .description {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile .social-icons,
+  .about .social-icons {
+    justify-content: center;
+  }
+
+  .music-list {
+    height: auto;
+  }
+
+  .music-item {
+    width: 100%;
+  }
+
+  .music-item img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+    margin-top: 100px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .profile .description h2,
+  .about .description h2 {
+    font-size: 2em;
+  }
+
+  .profile .description .details,
+  .description p,
+  .about .description p {
+    font-size: 1em;
+  }
+
+  .music-recommend h2,
+  .music-recommend h3 {
+    font-size: 1.5em;
+  }
+
+  .cards .card {
+    font-size: 1em;
+  }
 }
