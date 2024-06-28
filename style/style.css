@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 body {
@@ -19,16 +20,75 @@ body {
   grid-area: header;
   width: 100%;
   background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .main {
   grid-area: main;
   width: 100%;
-  background-color: #f5f5f7;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.main h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+  padding: 20px;
+}
+
+.card-container .card {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-container .card img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  border-radius: 10px;
+  aspect-ratio: 9/11;
+  object-fit: cover;
+  transition: all 0.3s;
+}
+
+.card-container .card img:hover {
+  scale: 1.05;
 }
 
 .footer {
   grid-area: footer;
   width: 100%;
-  background: #ffffff;
+  background: #f1f1f1;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer p {
+  font-size: 0.9em;
 }
